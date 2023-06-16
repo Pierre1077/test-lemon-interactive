@@ -38,6 +38,7 @@ const BestRatingMovies = () => {
                         title={movie.name}
                         genres={movie.genres.join(', ')}
                         rating={movie.rating.average}
+                        thumbnail={movie.image.original}
                         navigateToDetail={() => navigateToDetail(movie)} />
                 ))}
             </ul>

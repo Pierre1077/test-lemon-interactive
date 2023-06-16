@@ -32,7 +32,14 @@ const HorrorCategoryMovies = () => {
             <h1>Horror Movies</h1>
             <ul>
                 {horrorCategoryMovies.map((movie, index) => (
-                    <MovieCard key={movie.id} title={movie.name} genres={movie.genres.join(', ')} rating={movie.rating.average} navigateToDetail={navigateToDetail} />
+                    <MovieCard
+                        key={movie.id}
+                        title={movie.name}
+                        genres={movie.genres.join(', ')}
+                        rating={movie.rating.average}
+                        navigateToDetail={() => navigateToDetail(movie)}
+                        thumbnail={movie.image.original}
+                    />
                 ))}
             </ul>
         </div>
