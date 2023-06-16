@@ -4,6 +4,7 @@ import Home from "./page/Home/Home";
 import Navigation from "./components/Navigation/Navigation";
 import Favorite from "./page/Favorite/Favorite";
 import React from "react";
+import Detail from "./page/Detail/Detail";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/favorite" element={ <Favorite/> } />
+                <Route path="/detail" element={ <Detail/> } />
             </Routes>
         </BrowserRouter>
     </div>

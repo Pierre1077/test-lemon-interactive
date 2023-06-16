@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import MovieCard from "../MovieCard/MovieCard";
+import {useNavigate} from "react-router-dom";
 
 const BestRatingMovies = () => {
     const [bestRatingMovies, setMovies] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchMovies = async () => {
+        const fetchBestRatingMovies = async () => {
             try {
                 const response = await fetch('https://api.tvmaze.com/shows');
                 const data = await response.json();
-                console.log(data)
                 const bestRatingMoviesData = data
                     .filter((movie) => movie.rating.average !== null)
                     .sort((a, b) => b.rating.average - a.rating.average)
@@ -19,17 +21,24 @@ const BestRatingMovies = () => {
             }
         };
 
-        fetchMovies();
+        fetchBestRatingMovies();
     }, []);
+
+    function navigateToDetail(movie) {
+        navigate(`/detail`, { state: { movie } });
+    }
 
     return (
         <div>
             <h1>Top 20 Movies</h1>
             <ul>
                 {bestRatingMovies.map((movie) => (
-                    <li key={movie.id}>
-                        {movie.name} - Rating: {movie.rating.average}
-                    </li>
+                    <MovieCard
+                        key={movie.id}
+                        title={movie.name}
+                        genres={movie.genres.join(', ')}
+                        rating={movie.rating.average}
+                        navigateToDetail={() => navigateToDetail(movie)} />
                 ))}
             </ul>
         </div>
