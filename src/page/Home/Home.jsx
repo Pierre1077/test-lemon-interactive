@@ -1,6 +1,7 @@
 import React from 'react';
 import BestRatingMovies from "../../components/BestRatingMovies/BestRatingMovies";
 import HorrorCategoryMovies from "../../components/HorrorCategoryMovies/HorrorCategoryMovies";
+import Recommendation from "../../components/Recommendation/Recommendation";
 
 const Home = () => {
 
@@ -8,6 +9,7 @@ const Home = () => {
         <div>
             <BestRatingMovies />
             <HorrorCategoryMovies/>
+            <Recommendation />
         </div>
     );
 };
