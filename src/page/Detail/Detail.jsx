@@ -34,7 +34,7 @@ const Detail = () => {
 
     return (
         <div>
-            <h2>Page de détail pour le film</h2>
+            <h2 className="movieTitle">Page de détail pour le film</h2>
             <MovieCard
                 title={movie.name}
                 genres={movie.genres.join(', ')}

@@ -66,6 +66,20 @@ const HorrorCategoryMovies = () => {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
+            breakpoints: {
+                540: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+                1280: {
+                    slidesPerView: 4,
+                }
+            }
         });
 
         return () => {
@@ -83,8 +97,9 @@ const HorrorCategoryMovies = () => {
 
     return (
         <div style={{width: "90%", margin: '0 auto'}}>
-            <h1>Horror Movies</h1>
-
+            <div className="movieTitle">
+                <h2>Horror Movies</h2>
+            </div>
             <div className="swiper mySwiper" ref={swiperRef} >
                 <div className="swiper-wrapper">
                     {horrorCategoryMovies.map((movie) => (

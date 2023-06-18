@@ -44,21 +44,22 @@ const Favorite = () => {
 
     return (
         <div>
-            <h2>Favorite Movies</h2>
-            {favoriteMovies.map((movie) => (
-                <MovieCard
-                    key={movie.id}
-                    title={movie.name}
-                    genres={movie.genres.join(', ')}
-                    rating={movie.rating.average}
-                    thumbnail={movie.image.original}
-                    navigateToDetail={() => navigateToDetail(movie)}
-                    addToFavorite={() => addToFavorites(movie)}
-                    isFavorite={favoriteMovies.some((favMovie) => favMovie.id === movie.id) ? addToFavoriteIcon : removeToFavoriteIcon}
+            <h2 className="movieTitle">Favorite Movies</h2>
+            <div className="allMovies__wrapper">
+                {favoriteMovies.map((movie) => (
+                    <MovieCard
+                        key={movie.id}
+                        title={movie.name}
+                        genres={movie.genres.join(', ')}
+                        rating={movie.rating.average}
+                        thumbnail={movie.image.original}
+                        navigateToDetail={() => navigateToDetail(movie)}
+                        addToFavorite={() => addToFavorites(movie)}
+                        isFavorite={favoriteMovies.some((favMovie) => favMovie.id === movie.id) ? addToFavoriteIcon : removeToFavoriteIcon}
+                    />
+                ))}
+            </div>
 
-
-                />
-            ))}
         </div>
     );
 };

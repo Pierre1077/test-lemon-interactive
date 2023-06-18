@@ -1,11 +1,11 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
+import './Navigation.css'
 
 const Navigation = () => {
     return (
-        <div>
+        <div className="navigation__wrapper">
             <div>
-
                 <ul>
                     <NavLink to="/">
                         <li>Home</li>
