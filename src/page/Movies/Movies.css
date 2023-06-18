@@ -12,6 +12,11 @@
   text-transform: capitalize;
   margin: 0;
 }
+@media (max-width: 768px) {
+  .movieTitle {
+    flex-direction: column;
+  }
+}
 
 .input__search {
   border: solid 2px #e5e5e5;
@@ -25,6 +30,11 @@
 }
 .input__search:focus {
   outline: none;
+}
+@media (max-width: 768px) {
+  .input__search {
+    width: 75%;
+  }
 }
 
 .allMovies__wrapper {

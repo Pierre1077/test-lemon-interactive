@@ -12,6 +12,12 @@
   justify-content: flex-start;
   align-items: center;
 }
+.navigation__wrapper .navigation__item {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-left: 20px;
+}
 .navigation__wrapper ul {
   height: 100%;
   display: flex;

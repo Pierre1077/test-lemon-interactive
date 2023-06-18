@@ -1,3 +1,6 @@
+.movieCard__container {
+  background: #141414;
+}
 .movieCard__container .movieCard__wrapper {
   display: flex;
   flex-direction: column;
@@ -7,6 +10,7 @@
 }
 .movieCard__container .movieCard__wrapper .movieCard__top .movieCard__thumbnail {
   height: 300px;
+  width: 100%;
   object-fit: cover;
   object-position: top left;
   border-top-right-radius: 8px;
@@ -16,6 +20,7 @@
   background: #333;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
+  overflow: hidden;
 }
 .movieCard__container .movieCard__wrapper .movieCard__bottom .movieCard__title {
   white-space: nowrap;

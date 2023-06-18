@@ -142,7 +142,7 @@ const Movies = () => {
 
 
     return (
-        <div style={{width: "90%", margin: '0 auto'}}   >
+        <div style={{width: "90%", margin: '0 auto'}} >
             <div className="movieTitle">
                 <h2>All our films</h2>
                 <input className="input__search" type="text" placeholder={'search a movies ...'} onChange={searchMovieFunction}/>

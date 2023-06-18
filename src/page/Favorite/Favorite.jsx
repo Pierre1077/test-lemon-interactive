@@ -44,7 +44,9 @@ const Favorite = () => {
 
     return (
         <div>
-            <h2 className="movieTitle">Favorite Movies</h2>
+            <div style={{width: "90%", margin: '50px auto'}} className="movieTitle">
+                <h2 >Your favorite movies</h2>
+            </div>
             <div className="allMovies__wrapper">
                 {favoriteMovies.map((movie) => (
                     <MovieCard

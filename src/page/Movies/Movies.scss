@@ -4,12 +4,17 @@
   align-items: center;
   gap: 16px;
   margin: 50px 0;
+
   h2 {
     color: #e5e5e5;
     font-weight: 600;
     font-size: 30px;
     text-transform: capitalize;
     margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 }
 
@@ -25,6 +30,10 @@
 
   &:focus {
     outline: none;
+  }
+
+  @media (max-width: 768px) {
+    width: 75%;
   }
 }
 

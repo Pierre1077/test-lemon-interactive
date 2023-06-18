@@ -1,4 +1,5 @@
 .navigation__wrapper {
+
   border-bottom: solid 2px #333333;
   box-shadow: 5px 5px 10px #151519;
   height: 80px;
@@ -12,6 +13,13 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
+  .navigation__item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-left: 20px;
+  }
   ul {
     height: 100%;
     display: flex;

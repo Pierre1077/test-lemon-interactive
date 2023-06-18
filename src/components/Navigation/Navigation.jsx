@@ -5,7 +5,8 @@ import './Navigation.css'
 const Navigation = () => {
     return (
         <div className="navigation__wrapper">
-            <div>
+            <div className="navigation__item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt="" width="150px"/>
                 <ul>
                     <NavLink to="/">
                         <li>Home</li>
