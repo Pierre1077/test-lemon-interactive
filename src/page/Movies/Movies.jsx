@@ -42,6 +42,7 @@ const Movies = () => {
             try {
                 const response = await fetch(`https://api.tvmaze.com/shows`);
                 const _data = await response.json();
+                console.log(_data)
                 const recentlyMovieData = _data
                     .filter((movie) => movie.premiered !== null)
                     .sort((a, b) => new Date(b.premiered) - new Date(a.premiered))
@@ -142,36 +143,39 @@ const Movies = () => {
 
 
     return (
-        <div style={{width: "90%", margin: '0 auto'}} >
-            <div className="movieTitle">
+        <div>
+            <div className="movies__hero">
                 <h2>All our films</h2>
-                <input className="input__search" type="text" placeholder={'search a movies ...'} onChange={searchMovieFunction}/>
             </div>
-            <div className='allMovies__wrapper'>
-            {searchMovie.length > 0 ? (
-                searchMovie.map((movie) => (
-                    <div className={'div'}>
-                        <MovieCard
-                            key={movie.id}
-                            title={movie.name}
-                            genres={movie.genres ? movie.genres.join(', ') : ''}
-                            rating={movie.rating ? movie.rating.average : ''}
-                            navigateToDetail={() => navigateToDetail(movie)}
-                            thumbnail={movie.image ? movie.image.original : 'https://via.placeholder.com/100'}
-                            addToFavorite={() => addToFavorites(movie)}
-                            isFavorite={favoriteMovies.some((favMovie) => favMovie.id === movie.id) ? addToFavoriteIcon : removeToFavoriteIcon}
-                        />
-                    </div>
-                ))
-            ) : (
-                    ''
-            )}
-            </div>
+            <div style={{width: "90%", margin: '0 auto'}} >
 
-            <div className='allMovies__wrapper'>
-                {allMovies
-                    .slice((currentPage - 1) * moviesPerPage, currentPage * moviesPerPage)
-                    .map((movie) => (
+                <input className="input__search" type="text" placeholder={'search a movies ...'} onChange={searchMovieFunction}/>
+
+                <div className='allMovies__wrapper'>
+                    {searchMovie.length > 0 ? (
+                        searchMovie.map((movie) => (
+                            <div className={'div'}>
+                                <MovieCard
+                                    key={movie.id}
+                                    title={movie.name}
+                                    genres={movie.genres ? movie.genres.join(', ') : ''}
+                                    rating={movie.rating ? movie.rating.average : ''}
+                                    navigateToDetail={() => navigateToDetail(movie)}
+                                    thumbnail={movie.image ? movie.image.original : 'https://via.placeholder.com/100'}
+                                    addToFavorite={() => addToFavorites(movie)}
+                                    isFavorite={favoriteMovies.some((favMovie) => favMovie.id === movie.id) ? addToFavoriteIcon : removeToFavoriteIcon}
+                                />
+                            </div>
+                        ))
+                    ) : (
+                        ''
+                    )}
+                </div>
+
+                <div className='allMovies__wrapper'>
+                    {allMovies
+                        .slice((currentPage - 1) * moviesPerPage, currentPage * moviesPerPage)
+                        .map((movie) => (
                             <MovieCard
                                 key={movie.id}
                                 title={movie.name}
@@ -184,39 +188,40 @@ const Movies = () => {
 
 
                             />
-                    ))}
-            </div>
-            <div className="allMovies__navigation">
-                <button onClick={goToPreviousPage} disabled={currentPage === 1}><i className="fa-solid fa-arrow-left"></i> Previous Page</button>
-                <button onClick={goToNextPage}>Next Page <i className="fa-solid fa-arrow-right"></i></button>
-            </div>
-
-            <div>
-                <div className="movieTitle">
-                    <h2>Recently Movies</h2>
-                </div>
-                <div className="swiper mySwiper" ref={swiperRef} >
-                    <div className="swiper-wrapper">
-                        {recentlyMovie.map((movie) => (
-                            <div className="swiper-slide" key={movie.id}>
-                                <MovieCard
-                                    title={movie.name}
-                                    genres={movie.genres.join(', ')}
-                                    rating={movie.rating.average}
-                                    thumbnail={movie.image.original}
-                                    navigateToDetail={() => navigateToDetail(movie)}
-                                    addToFavorite={() => addToFavorites(movie)}
-                                    isFavorite={favoriteMovies.some((favMovie) => favMovie.id === movie.id) ? addToFavoriteIcon : removeToFavoriteIcon}
-                                />
-                            </div>
                         ))}
-                    </div>
-
-                    <div className="swiper-button-next"></div>
-                    <div className="swiper-button-prev"></div>
                 </div>
-            </div>
+                <div className="allMovies__navigation">
+                    <button onClick={goToPreviousPage} disabled={currentPage === 1}><i className="fa-solid fa-arrow-left"></i> Previous Page</button>
+                    <button onClick={goToNextPage}>Next Page <i className="fa-solid fa-arrow-right"></i></button>
+                </div>
 
+                <div>
+                    <div className="movieTitle">
+                        <h2>Recently Movies</h2>
+                    </div>
+                    <div className="swiper mySwiper" ref={swiperRef} >
+                        <div className="swiper-wrapper">
+                            {recentlyMovie.map((movie) => (
+                                <div className="swiper-slide" key={movie.id}>
+                                    <MovieCard
+                                        title={movie.name}
+                                        genres={movie.genres.join(', ')}
+                                        rating={movie.rating.average}
+                                        thumbnail={movie.image.original}
+                                        navigateToDetail={() => navigateToDetail(movie)}
+                                        addToFavorite={() => addToFavorites(movie)}
+                                        isFavorite={favoriteMovies.some((favMovie) => favMovie.id === movie.id) ? addToFavoriteIcon : removeToFavoriteIcon}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="swiper-button-next"></div>
+                        <div className="swiper-button-prev"></div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     );
 };

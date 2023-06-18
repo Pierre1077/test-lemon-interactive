@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { useLocation } from 'react-router-dom';
-import MovieCard from "../../components/MovieCard/MovieCard";
-
+import './Detail.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
@@ -24,25 +23,26 @@ const Detail = () => {
         localStorage.setItem('favoriteMovies', JSON.stringify(updatedFavorites));
     }
 
-    const addToFavoriteIcon = (
-        <FontAwesomeIcon icon={faThumbsUp} className="addToFavorite" />
-    );
-
-    const removeToFavoriteIcon = (
-        <FontAwesomeIcon icon={faThumbsUp} className="removeToFavorite" />
-    );
 
     return (
-        <div>
-            <h2 className="movieTitle">Page de détail pour le film</h2>
-            <MovieCard
-                title={movie.name}
-                genres={movie.genres.join(', ')}
-                rating={movie.rating.average}
-                thumbnail={movie.image.original}
-                addToFavorite={() => addToFavorites(movie)}
-                isFavorite={favoriteMovies.some((favMovie) => favMovie.id === movie.id) ? addToFavoriteIcon : removeToFavoriteIcon}
-            />
+        <div className="detail__container">
+            <div className="movieTitle">
+                <h2>{movie.name}</h2>
+            </div>
+            <div className="detail__information">
+                <div className="detail__genres">{movie.genres.join(', ')}</div>
+                <div>
+                    <p className="detail__recommendation">Recommandé à { (movie.rating.average * 10)} %</p>
+                </div>
+                <div>
+                    <p>Beggining: {movie.premiered}</p>
+                </div>
+            </div>
+            <div className="detail__wrapper">
+                <img src={movie.image.original} alt=""/>
+                <div dangerouslySetInnerHTML={{ __html: movie.summary }}></div>
+
+            </div>
         </div>
     );
 };

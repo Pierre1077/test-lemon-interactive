@@ -3,7 +3,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 16px;
-  margin: 50px 0;
+  padding: 50px 0;
 }
 .movieTitle h2 {
   color: #e5e5e5;
@@ -12,10 +12,21 @@
   text-transform: capitalize;
   margin: 0;
 }
-@media (max-width: 768px) {
-  .movieTitle {
-    flex-direction: column;
-  }
+
+.movies__hero {
+  height: 20vh;
+  background: violet;
+  position: relative;
+  margin-bottom: 75px;
+}
+.movies__hero h2 {
+  color: #e5e5e5;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3vw;
+  line-height: 0;
 }
 
 .input__search {
@@ -27,6 +38,7 @@
   font-size: 16px;
   border-radius: 8px;
   background: none;
+  margin-bottom: 75px;
 }
 .input__search:focus {
   outline: none;

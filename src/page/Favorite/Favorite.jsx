@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MovieCard from "../../components/MovieCard/MovieCard";
 import {useNavigate} from "react-router-dom";
+import './Favorite.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
@@ -44,7 +45,7 @@ const Favorite = () => {
 
     return (
         <div>
-            <div style={{width: "90%", margin: '50px auto'}} className="movieTitle">
+            <div className="favorite__hero">
                 <h2 >Your favorite movies</h2>
             </div>
             <div className="allMovies__wrapper">
