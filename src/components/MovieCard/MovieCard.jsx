@@ -9,10 +9,6 @@ const MovieCard = ({ title, genres, rating, thumbnail, navigateToDetail, addToFa
         <FontAwesomeIcon icon={faThumbsUp} className="addToFavorite" />
     );
 
-    const removeToFavoriteIcon = (
-        <FontAwesomeIcon icon={faThumbsUp} className="removeToFavorite" />
-    );
-
     return (
         <div className={'movieCard__container'}>
             <div className={'movieCard__wrapper'}>
@@ -35,17 +31,12 @@ const MovieCard = ({ title, genres, rating, thumbnail, navigateToDetail, addToFa
                     </div>
                 </div>
             </div>
-            {/*<div>*/}
-            {/*    <button onClick={() => { addToFavorite(); }}>*/}
-            {/*        {isFavorite ? isFavorite : 'add'}*/}
-            {/*    </button>*/}
-            {/*</div>*/}
         </div>
     );
 };
 
 MovieCard.defaultProps = {
-    isFavorite: 'add', // Valeur par défaut pour la prop 'message'
+    isFavorite: 'add',
 };
 
 export default MovieCard;

@@ -27,6 +27,7 @@ const Recommendation = () => {
                         movie.genres.some((genre) => favoriteCategories.includes(genre))
                     )
                     .slice(0, 20);
+                console.log(recommendationMoviesData)
                 setRecommendationMoviesData(recommendationMoviesData);
             } catch (error) {
                 console.error(error);

@@ -42,7 +42,6 @@ const Movies = () => {
             try {
                 const response = await fetch(`https://api.tvmaze.com/shows`);
                 const _data = await response.json();
-                console.log(_data)
                 const recentlyMovieData = _data
                     .filter((movie) => movie.premiered !== null)
                     .sort((a, b) => new Date(b.premiered) - new Date(a.premiered))
@@ -220,7 +219,6 @@ const Movies = () => {
                         <div className="swiper-button-prev"></div>
                     </div>
                 </div>
-
             </div>
         </div>
     );

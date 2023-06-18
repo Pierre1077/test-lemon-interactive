@@ -17,7 +17,6 @@ const Navigation = () => {
                     <NavLink to="/movies">
                         <li>Movies</li>
                     </NavLink>
-
                 </ul>
             </div>
         </div>
